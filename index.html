@@ -4,17 +4,81 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Catálogo de Productos - Maquetación Semántica</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-  <p>
-    sapo sapito sapo, sapo sapito azul, le dijo a la sapa que no sabe ni la U
-  </p>
-  <P class="color">
-    sapo sapito sapo, sapo sapito azul, le dijo a la sapa que no sabe ni la U, A, E, I, O,
-  </P>
+  <!-- Encabezado con navegación principal -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#">Catálogo</a></li>
+        <li><a href="#">Ofertas</a></li>
+        <li><a href="#">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Cuerpo de la página dividido semánticamente entre main y aside -->
+  <div class="contenedor-layout">
+    <main>
+      <section>
+        <!-- Producto 1 (Con clase e ID para el conflicto de especificidad) -->
+        <article>
+          <h2>Sapo Gamer Pro</h2>
+          <p>Figura coleccionable edición especial de alta durabilidad y detalles exclusivos.</p>
+          <p class="precio">$45.000 COP</p>
+          <a href="#" class="btn-comprar" id="btn-destacado">Comprar</a>
+        </article>
+
+        <!-- Producto 2 -->
+        <article>
+          <h2>Sapo Azul Clásico</h2>
+          <p>Diseño tradicional enfocado en comodidad y estilo minimalista.</p>
+          <p class="precio">$30.000 COP</p>
+          <a href="#" class="btn-comprar">Comprar</a>
+        </article>
+
+        <!-- Producto 3 -->
+        <article>
+          <h2>Sapo Neón LED</h2>
+          <p>Modelo con iluminación RGB integrada y acabados de alta gama.</p>
+          <p class="precio">$75.000 COP</p>
+          <a href="#" class="btn-comprar">Comprar</a>
+        </article>
+
+        <!-- Producto 4 -->
+        <article>
+          <h2>Sapo Mini Colección</h2>
+          <p>Versión compacta ideal para escritorios y espacios de trabajo.</p>
+          <p class="precio">$20.000 COP</p>
+          <a href="#" class="btn-comprar">Comprar</a>
+        </article>
+      </section>
+    </main>
+
+    <!-- Barra lateral para menú secundario de filtros -->
+    <aside>
+      <h2>Filtros</h2>
+      <ul>
+        <li><a href="#">Ediciones Especiales</a></li>
+        <li><a href="#">Más Vendidos</a></li>
+        <li><a href="#">Ofertas Flash</a></li>
+      </ul>
+    </aside>
+  </div>
+
+  <!-- Pie de página con derechos y redes sociales -->
+  <footer>
+    <p>&copy; 2026 ADSO - Todos los derechos reservados.</p>
+    <ul>
+      <li><a href="#">Instagram</a></li>
+      <li><a href="#">Facebook</a></li>
+      <li><a href="#">Twitter</a></li>
+    </ul>
+  </footer>
 </body>
 
 </html>
