@@ -1,27 +1,45 @@
-body{
-    color:aquamarine;
-    font-size: 25px;
-
+/* ---GENÉTICA DEL NAVEGADOR (Herencia) --- */
+body {
+    font-family: sans-serif;
+    color: #333333;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
 }
 
-p{
-    color:aqua;
+/* ---AISLAMIENTO DE PINTURA POR ZONAS (Selectores Compuestos) --- */
+header nav ul li a {
+    color: #0056b3;
+    text-decoration: none;
+    font-weight: bold;
 }
 
-.color{
-    color:chartreuse;
-    font-size: 12px;
-}body{
-    color:aquamarine;
-    font-size: 25px;
-
+aside ul li a {
+    color: #2e7d32;
+    text-decoration: none;
 }
 
-p{
-    color:aqua;
+footer ul li a {
+    color: #757575;
+    text-decoration: none;
 }
 
-.color{
-    color:chartreuse;
-    font-size: 12px;
+/* 
+   Las demás compras tienen color azul gracias a la clase (.btn-comprar = 10 pts).
+   El primer producto se vuelve rojo porque el identificador (#btn-destacado = 100 pts) 
+   aplasta a la clase por su peso de especificidad, sin necesidad de fondos de botones.
+*/
+.btn-comprar {
+    color: #0056b3;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#btn-destacado {
+    color: #d32f2f; 
+}
+
+/* Efecto al pasar el cursor */
+a:hover {
+    text-decoration: underline;
 }
