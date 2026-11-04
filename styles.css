@@ -57,3 +57,9 @@ footer ul li a {
 a:hover {
     text-decoration: underline;
 }
+/* Color de fondo exclusivo para las tarjetas de productos (<article>) */
+article {
+    background-color: #ffffff; /* Fondo blanco para que resalten sobre el aquamarine */
+    padding: 20px;            /* Espacio interno para que el texto no toque los bordes */
+    margin: 15px 0;           /* Separación vertical entre producto y producto */
+}
