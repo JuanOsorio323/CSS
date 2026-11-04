@@ -1,15 +1,36 @@
-body{
-  background-color: aquamarine;
+:root{
+/* 1. Variables de Color (Paleta Corporativa) */
+  --color-primario: rgb(50, 205, 104);
+  --color-secundario: aquamarine;
+  --color-fondo: #f8fafc;
+  --color-texto: #333333;
+  --color-blanco: #ffffff;
+  --color-enlace: #0056b3;
+  --color-enlace-secundario: #2e7d32;
+  --color-enlace-footer: #757575;
+  --color-destacado: #d32f2f;
+  /* 2. Variables de Tipografía */
+  --fuente-principal: 'Poppins', sans-serif;
+  /* 3. Variables de Espaciado (Box Model Tokenizado) */
+  --espaciado-medio: 16px;
+  --espaciado-grande: 24px; 
 }
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+}
+
 body {
-    font-family: sans-serif;
-    color: #333333;
-    margin: 15px;
-    padding: 20px;
+  background-color: var(--color-secundario);
+  font-family: var(--fuente-principal);
+  color: var(--color-texto);
+  margin: var(--espaciado-medio);
+  padding: var(--espaciado-grande);
 }
 
 header{
-  background-color:rgb(50, 205, 104);
+  background-color:var(--color-primario);
   background-image: url(sapo.jpeg);
     background-size: cover;
     background-position: center;
@@ -17,49 +38,53 @@ header{
     min-height: 250px;
 }
 header nav ul li a {
-    color: #0056b3;
+    color: var(--color-enlace);
     text-decoration: none;
     font-weight: bold;
 }
 aside{
-  background-color: rgb(50, 205, 104);
+  background-color: var(--color-primario);
+  padding: var(--espaciado-medio);
+  margin-bottom: var(--espaciado-medio);
 }
 
 aside ul li a {
-    color: #2e7d32;
+    color: var(--color-enlace-secundario);
     text-decoration: none;
 }
 footer{
-  background-color: rgb(50, 205, 104);
+  background-color: var(--color-primario);
+  padding: var(--espaciado-medio);
 }
 
 footer ul li a {
-    color: #757575;
+    color: var(--color-enlace-footer);
     text-decoration: none;
 }
-
+/* Tarjetas de productos (<article>) estandarizadas */
+article {
+    background-color: var(--color-blanco);
+    padding: var(--espaciado-medio);
+    margin: var(--espaciado-medio);
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+}
 /* 
    Las demás compras tienen color azul gracias a la clase (.btn-comprar = 10 pts).
    El primer producto se vuelve rojo porque el identificador (#btn-destacado = 100 pts) 
    aplasta a la clase por su peso de especificidad, sin necesidad de fondos de botones.
 */
 .btn-comprar {
-    color: #0056b3;
+    color: var(--color-enlace);
     text-decoration: none;
     font-weight: bold;
 }
 
 #btn-destacado {
-    color: #d32f2f; 
+    color: var(--color-destacado); 
 }
 
 /* Efecto al pasar el cursor */
 a:hover {
     text-decoration: underline;
-}
-/* Color de fondo exclusivo para las tarjetas de productos (<article>) */
-article {
-    background-color: #ffffff; /* Fondo blanco para que resalten sobre el aquamarine */
-    padding: 20px;            /* Espacio interno para que el texto no toque los bordes */
-    margin: 15px 0;           /* Separación vertical entre producto y producto */
 }

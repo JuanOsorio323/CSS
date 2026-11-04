@@ -30,3 +30,29 @@ La especificidad determina qué regla CSS gana y se aplica cuando existen colisi
 
 3. **Cómo se ven afectados los elementos hermanos cuando le aplicas un margen grande a uno de ellos:**
    - Los elementos hermanos se desplazan y se alejan de forma proporcional según el espacio exterior que impone ese margen. Además, en el eje vertical (arriba y abajo), si dos elementos hermanos tienen márgenes contiguos, estos pueden fusionarse en un fenómeno conocido como *margin collapsing* (colapso de márgenes), donde el navegador aplica el valor del margen más grande en lugar de sumar ambos, lo cual es fundamental tener en cuenta para calcular espacios exactos en la interfaz.
+
+   ## Hallazgos: Centralización de Identidad Visual y Espaciado
+
+1. **La lista completa de variables declaradas (colores y espaciados):**
+   - **Variables de Color:**
+     - `--primary-color`: `rgb(50, 205, 104)` (Color corporativo principal para encabezados, barras laterales y pie de página).
+     - `--secondary-color`: `aquamarine` (Color de fondo global del cuerpo de la página).
+     - `--background-color`: `#f8fafc` (Fondo general complementario).
+     - `--text-color`: `#333333` (Color base para la tipografía general).
+     - `--white-color`: `#ffffff` (Color de fondo para las tarjetas de productos `<article>`).
+     - `--link-color`: `#0056b3` (Color principal para enlaces y botones de compra).
+     - `--secondary-link-color`: `#2e7d32` (Color para enlaces en la barra lateral).
+     - `--footer-link-color`: `#757575` (Color para enlaces del pie de página).
+     - `--accent-color`: `#d32f2f` (Color de realce/destacado para el primer producto ID).
+   - **Variables de Tipografía:**
+     - `--main-font`: `'Poppins', sans-serif` (Tipografía principal importada desde Google Fonts).
+   - **Variables de Espaciado (Tokens de Box Model):**
+     - `--spacing-small`: `8px` (Espaciado micro).
+     - `--spacing-medium`: `15px` (Espaciado estándar para márgenes).
+     - `--spacing-large`: `20px` (Espaciado amplio para rellenos/paddings).
+
+2. **La ventaja de reutilizar medidas de margen y relleno en lugar de inventar valores en cada selector:**
+   - Permite garantizar una consistencia visual rigurosa en todo el diseño web, logrando proporciones de aire idénticas y armónicas en todas las tarjetas de productos y secciones. Además, previene el error humano de escribir valores aleatorios y agiliza cualquier cambio futuro, ya que si decides modificar el tamaño del espacio, solo debes cambiarlo una sola vez en el `:root`.
+
+3. **De qué manera la centralización en `:root` previene colisiones visuales a medida que la hoja de estilos crece:**
+   - Al depender de una única "fuente de verdad" ubicada en el bloque `:root`, cualquier modificación o escalabilidad del diseño se propaga de manera uniforme a todo el documento. Esto elimina el riesgo de discrepancias en los márgenes entre elementos hermanos, previene desajustes estructurales en las cajas y evita que la hoja de estilos se vuelva caótica o difícil de mantener a medida que el proyecto de desarrollo crece.
