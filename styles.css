@@ -1,22 +1,36 @@
-/* ---GENÉTICA DEL NAVEGADOR (Herencia) --- */
+body{
+  background-color: aquamarine;
+}
 body {
     font-family: sans-serif;
     color: #333333;
-    margin: 0;
-    padding: 0;
-    background-color: #f9f9f9;
+    margin: 15px;
+    padding: 20px;
 }
 
-/* ---AISLAMIENTO DE PINTURA POR ZONAS (Selectores Compuestos) --- */
+header{
+  background-color:rgb(50, 205, 104);
+  background-image: url(sapo.jpeg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 250px;
+}
 header nav ul li a {
     color: #0056b3;
     text-decoration: none;
     font-weight: bold;
 }
+aside{
+  background-color: rgb(50, 205, 104);
+}
 
 aside ul li a {
     color: #2e7d32;
     text-decoration: none;
+}
+footer{
+  background-color: rgb(50, 205, 104);
 }
 
 footer ul li a {

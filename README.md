@@ -18,3 +18,15 @@ La especificidad determina qué regla CSS gana y se aplica cuando existen colisi
 
 3. **Pseudo-clases:**
    * `a:hover` $\rightarrow$ 1 etiqueta (`a`) + 1 pseudo-clase (`:hover`) = **11 puntos** (1 + 10)
+   
+   ## Hallazgos: El Modelo de Caja
+
+1. **La diferencia práctica entre Margin y Padding:**
+   - **Padding (Relleno):** Es el espacio interno que se genera entre el contenido real de la caja (textos, imágenes, enlaces) y su borde. Actúa como un colchón por dentro para evitar que los elementos colisionen o toquen los límites de su propio contenedor.
+   - **Margin (Margen):** Es el espacio externo que rodea la caja. Su función principal es separar el elemento de otros elementos vecinos o hermanos en la pantalla, evitando que se peguen o colisionen visualmente.
+
+2. **Por qué es obligatorio usar `box-sizing: border-box`:**
+   - Por defecto, el navegador calcula el ancho total de un elemento sumando el contenido más el relleno y los bordes por separado (`content-box`), lo que provoca que las cajas crezcan más de lo esperado y rompan la estructura del diseño. Al configurar `box-sizing: border-box;`, le indicamos al navegador que los rellenos y los bordes se calculen *hacia adentro*, garantizando que el tamaño total de la caja se mantenga fiel y exacto a las dimensiones que programamos.
+
+3. **Cómo se ven afectados los elementos hermanos cuando le aplicas un margen grande a uno de ellos:**
+   - Los elementos hermanos se desplazan y se alejan de forma proporcional según el espacio exterior que impone ese margen. Además, en el eje vertical (arriba y abajo), si dos elementos hermanos tienen márgenes contiguos, estos pueden fusionarse en un fenómeno conocido como *margin collapsing* (colapso de márgenes), donde el navegador aplica el valor del margen más grande en lugar de sumar ambos, lo cual es fundamental tener en cuenta para calcular espacios exactos en la interfaz.
