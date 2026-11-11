@@ -19,6 +19,7 @@
 *{
   box-sizing: border-box;
   margin: 0;
+  padding: 0;
 }
 
 body {
@@ -36,55 +37,146 @@ header{
     background-position: center;
     background-repeat: no-repeat;
     min-height: 250px;
+    padding: var(--espaciado-medio);
 }
+
+header nav ul {
+    list-style: none; 
+    display: flex;
+    gap: 15px;
+}
+
 header nav ul li a {
     color: var(--color-enlace);
     text-decoration: none;
     font-weight: bold;
 }
-aside{
-  background-color: var(--color-primario);
-  padding: var(--espaciado-medio);
-  margin-bottom: var(--espaciado-medio);
+
+.contenedor-layout {
+    display: flex;
+    gap: var(--espaciado-medio);
+    margin-top: var(--espaciado-medio);
+}
+
+main {
+    flex: 3; 
+}
+
+aside {
+    flex: 1; 
+    background-color: var(--color-primario);
+    padding: var(--espaciado-medio);
+    margin-bottom: var(--espaciado-medio);
+    border-radius: 8px;
+}
+
+aside ul {
+    list-style: none; 
 }
 
 aside ul li a {
-    color: var(--color-enlace-secundario);
-    text-decoration: none;
-}
-footer{
-  background-color: var(--color-primario);
-  padding: var(--espaciado-medio);
+  color: var(--color-enlace-secundario);
+  text-decoration: none;
+  display: block;
+  padding: 6px 10px;
+  margin-bottom: 6px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-footer ul li a {
-    color: var(--color-enlace-footer);
-    text-decoration: none;
+aside ul li a:hover {
+  background-color: var(--color-secundario);
+  color: var(--color-texto);
 }
-/* Tarjetas de productos (<article>) estandarizadas */
+
+aside ul li a::before {
+  content: "• "; 
+  color: var(--color-enlace-secundario);
+  font-weight: bold;
+  margin-right: 6px;
+  transition: color 0.3s ease;
+}
+
+aside ul li a:hover::before {
+  color: var(--color-texto);
+}
+
+aside ul li a:focus {
+  outline: 2px solid var(--color-secundario);
+  outline-offset: 3px;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
 article {
-    background-color: var(--color-blanco);
-    padding: var(--espaciado-medio);
-    margin: var(--espaciado-medio);
-    border-radius: 8px;
-    border: 1px solid #cbd5e1;
+  background-color: var(--color-blanco);
+  padding: var(--espaciado-medio);
+  margin-bottom: var(--espaciado-medio);
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  position: relative;
 }
-/* 
-   Las demás compras tienen color azul gracias a la clase (.btn-comprar = 10 pts).
-   El primer producto se vuelve rojo porque el identificador (#btn-destacado = 100 pts) 
-   aplasta a la clase por su peso de especificidad, sin necesidad de fondos de botones.
-*/
+
+article h2::after::after {
+  content: " !Oferta¡";
+  display: inline-block;
+  background-color: var(--color-destacado);
+  color: var(--color-blanco);
+  font-size: 0.65em;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
 .btn-comprar {
-    color: var(--color-enlace);
-    text-decoration: none;
-    font-weight: bold;
+  color: var(--color-enlace);
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 10px;
+  padding: 6px 12px;
+  border-radius: 4px;
+  transition: transform 0.1s ease, filter 0.2s ease;background-color: 0.2s ease;
 }
 
 #btn-destacado {
-    color: var(--color-destacado); 
+  color: var(--color-blanco);
+}
+
+.btn-comprar:hover {
+  filter: brightness(0.85);
+  background-color: rgba(0, 86, 179, 0.1);
+}
+
+#btn-destacado:hover {
+ background-color: rgba(211, 47, 47, 0.1);
+}
+
+.btn-comprar:active, #btn-destacado:active {
+  transform: scale(0.95) translateY(1px);
 }
 
 /* Efecto al pasar el cursor */
 a:hover {
     text-decoration: underline;
+}
+
+footer {
+  background-color: var(--color-primario);
+  padding: var(--espaciado-medio);
+  border-radius: 8px;
+  margin-top: var(--espaciado-medio);
+}
+
+footer ul {
+  list-style: none; 
+  display: flex;
+  gap: 15px;
+  margin-top: 8px;
+}
+
+footer ul li a {
+  color: var(--color-enlace-footer);
+  text-decoration: none;
 }
