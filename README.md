@@ -56,3 +56,46 @@ La especificidad determina qué regla CSS gana y se aplica cuando existen colisi
 
 3. **De qué manera la centralización en `:root` previene colisiones visuales a medida que la hoja de estilos crece:**
    - Al depender de una única "fuente de verdad" ubicada en el bloque `:root`, cualquier modificación o escalabilidad del diseño se propaga de manera uniforme a todo el documento. Esto elimina el riesgo de discrepancias en los márgenes entre elementos hermanos, previene desajustes estructurales en las cajas y evita que la hoja de estilos se vuelva caótica o difícil de mantener a medida que el proyecto de desarrollo crece.
+   # Proyecto CSS - Catálogo de Productos con Maquetación Semántica
+
+Este proyecto consiste en un catálogo de productos interactivo desarrollado con **HTML5** y **CSS3**, enfocado en la aplicación de variables de diseño, maquetación semántica mediante *Flexbox*, y microinteracciones avanzadas con pseudoclases y pseudoelementos.
+
+## Características del Proyecto
+
+* **Estructura Semántica**: Organización limpia utilizando las etiquetas `<header>`, `<main>`, `<article>`, `<aside>` y `<footer>`.
+* **Diseño Flexible (Flexbox)**: Distribución del layout en dos columnas (`.contenedor-layout`) para posicionar el catálogo de productos y el menú lateral de filtros lado a lado.
+* **Tokenización con Variables CSS**: Uso de `:root` para gestionar la paleta de colores corporativa, fuentes (`Poppins`) y espaciados estandarizados.
+* **Imágenes de Fondo**: Cabecera con imagen de fondo personalizada (`sapo.jpeg`).
+
+## Hallazgos: Pseudoclases y Pseudoelementos
+
+1. **Diferencia funcional entre una pseudoclase y un pseudoelemento:**
+   - Una **pseudoclase** (como `:hover`, `:focus` o `:active`) se activa para cambiar el estado o el estilo de un elemento existente en respuesta a la interacción del usuario (apuntar con el cursor, navegar con el teclado o hacer clic). Modifica dinámicamente el comportamiento del nodo según su estado actual.
+   - Un **pseudoelemento** (como `::before` o `::after`) permite insertar contenido generado por CSS (`content: "..."`) o crear capas gráficas virtuales directamente en el DOM renderizado, sin necesidad de modificar el código HTML estructural.
+
+2. **Importancia técnica de la pseudoclase `:focus` para la accesibilidad web:**
+   - La pseudoclase `:focus` es indispensable para garantizar los estándares de accesibilidad (WCAG). Permite a los usuarios que navegan mediante tecnologías de asistencia o exclusivamente con el teclado (tecla `Tab`) identificar de forma visual y clara en qué elemento interactivo se encuentran ubicados en cada momento, evitando la pérdida del foco visual.
+
+3. **Por qué es una buena práctica inyectar elementos decorativos con `::before`/`::after` en lugar de etiquetas HTML vacías:**
+   - Utilizar pseudoelementos para insertar detalles estéticos (como viñetas `•` o insignias de `¡Oferta!`) evita "ensuciar" el marcado HTML con elementos vacíos (`<span>` o `<div>`) puramente decorativos. Esto asegura una separación limpia entre la estructura semántica y la capa de presentación visual, facilitando el mantenimiento y mejorando la legibilidad del código.
+
+## Microinteracciones Implementadas
+
+* **Menú Lateral (`aside`)**:
+  * `:hover`: Cambia suavemente el fondo y el color del texto al pasar el cursor.
+  * `::before`: Inyecta automáticamente el indicador `• ` antes de cada categoría.
+  * `:focus`: Aplica un contorno visible (`outline`) al navegar con la tecla `Tab`.
+
+* **Catálogo de Productos (`main`)**:
+  * `::after`: Inyecta la insignia virtual ` ¡Oferta!` en el título (`<h2>`) de cada producto.
+  * `:hover`: Oscurece suavemente el botón de compra al pasar el cursor.
+  * `:active`: Simula un efecto de hundimiento/presión (`transform: scale(0.95)`) al hacer clic en los botones.
+
+## Versionado y Despliegue (Git)
+
+Comandos utilizados para consolidar y respaldar los avances en GitHub:
+
+```bash
+git add .
+git commit -m "feat(ui): implementar pseudoclases interactivas en aside y pseudoelementos en productos"
+git push origin feature/interactividad-css
