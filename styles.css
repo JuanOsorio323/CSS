@@ -116,7 +116,7 @@ article {
   position: relative;
 }
 
-article h2::after::after {
+article h2::after {
   content: " !Oferta¡";
   display: inline-block;
   background-color: var(--color-destacado);
@@ -141,7 +141,7 @@ article h2::after::after {
 }
 
 #btn-destacado {
-  color: var(--color-blanco);
+  color: var(--color-destacado);
 }
 
 .btn-comprar:hover {
