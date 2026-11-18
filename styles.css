@@ -12,6 +12,7 @@
   /* 2. Variables de Tipografía */
   --fuente-principal: 'Poppins', sans-serif;
   /* 3. Variables de Espaciado (Box Model Tokenizado) */
+  --espacio-pequeño: 8px;
   --espaciado-medio: 16px;
   --espaciado-grande: 24px; 
 }
@@ -43,7 +44,7 @@ header{
 header nav ul {
     list-style: none; 
     display: flex;
-    gap: 15px;
+    gap: var(--espacio-pequeño);
 }
 
 header nav ul li a {
@@ -67,7 +68,7 @@ aside {
     background-color: var(--color-primario);
     padding: var(--espaciado-medio);
     margin-bottom: var(--espaciado-medio);
-    border-radius: 8px;
+    border-radius: var(--espacio-pequeño);
 }
 
 aside ul {
@@ -111,7 +112,7 @@ article {
   background-color: var(--color-blanco);
   padding: var(--espaciado-medio);
   margin-bottom: var(--espaciado-medio);
-  border-radius: 8px;
+  border-radius: var(--espacio-pequeño);
   border: 1px solid #cbd5e1;
   position: relative;
 }
@@ -125,7 +126,7 @@ article h2::after {
   font-weight: bold;
   padding: 2px 6px;
   border-radius: 4px;
-  margin-left: 8px;
+  margin-left: var(--espacio-pequeño);
   vertical-align: middle;
 }
 
@@ -137,7 +138,7 @@ article h2::after {
   margin-top: 10px;
   padding: 6px 12px;
   border-radius: 4px;
-  transition: transform 0.1s ease, filter 0.2s ease;background-color: 0.2s ease;
+  transition: transform 0.1s ease, filter 0.2s ease, background-color 0.2s ease;
 }
 
 #btn-destacado {
@@ -165,7 +166,7 @@ a:hover {
 footer {
   background-color: var(--color-primario);
   padding: var(--espaciado-medio);
-  border-radius: 8px;
+  border-radius: var(--espacio-pequeño);
   margin-top: var(--espaciado-medio);
 }
 
@@ -173,7 +174,7 @@ footer ul {
   list-style: none; 
   display: flex;
   gap: 15px;
-  margin-top: 8px;
+  margin-top: var(--espacio-pequeño);
 }
 
 footer ul li a {
