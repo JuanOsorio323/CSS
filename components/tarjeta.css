@@ -1,0 +1,74 @@
+.card {
+  background-color: var(--color-blanco);
+  padding: var(--espaciado-medio);
+  margin-bottom: var(--espaciado-medio);
+  border-radius: var(--espaciado-pequeno);
+  border: 1px solid #cbd5e1;
+  position: relative;
+}
+
+/* Modificador BEM para la tarjeta destacada */
+.card--destacada {
+  border-color: var(--color-destacado);
+}
+
+.card__title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: var(--color-texto);
+}
+
+/* Aplicación del pseudo-elemento BEM para la etiqueta de oferta */
+.card__title::after {
+  content: " ¡Oferta!";
+  display: inline-block;
+  background-color: var(--color-destacado);
+  color: var(--color-blanco);
+  font-size: 0.65em;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-left: var(--espaciado-pequeno);
+  vertical-align: middle;
+}
+
+.card__description {
+  margin-top: var(--espaciado-pequeno);
+  color: var(--color-texto);
+  font-size: 0.95rem;
+}
+
+.card__price {
+  margin-top: var(--espaciado-pequeno);
+  font-weight: bold;
+  color: var(--color-enlace-secundario);
+}
+
+.card__button {
+  color: var(--color-enlace);
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: var(--espaciado-pequeno);
+  padding: 6px 12px;
+  border-radius: 4px;
+  transition: transform 0.1s ease, filter 0.2s ease, background-color 0.2s ease;
+}
+
+#btn-destacado {
+  color: var(--color-destacado);
+}
+
+.card__button:hover {
+  filter: brightness(0.85);
+  background-color: rgba(0, 86, 179, 0.1);
+}
+
+#btn-destacado:hover {
+  background-color: rgba(211, 47, 47, 0.1);
+}
+
+.card__button:active,
+#btn-destacado:active {
+  transform: scale(0.95) translateY(1px);
+}
