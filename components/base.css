@@ -1,0 +1,18 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--color-secundario);
+  font-family: var(--fuente-principal);
+  color: var(--color-texto);
+  margin: var(--espaciado-medio);
+  padding: var(--espaciado-grande);
+}
+
+/* Efecto global al pasar el cursor por los enlaces generales */
+a:hover {
+  text-decoration: underline;
+}
