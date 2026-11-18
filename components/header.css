@@ -1,0 +1,22 @@
+header {
+  background-color: var(--color-primario);
+  background-image: url('../../sapo.jpeg'); /* Ajusta la ruta relativa si está en la raíz */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 250px;
+  padding: var(--espaciado-medio);
+  border-radius: var(--espaciado-pequeno);
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+}
+
+header nav ul li a {
+  color: var(--color-enlace);
+  text-decoration: none;
+  font-weight: bold;
+}
