@@ -2,7 +2,7 @@
 @import url('components/header.css');
 @import url('components/tarjeta.css');
 @import url('components/sidebar.css');
-
+@import url('components/template/footer.css');
 :root{
 /* 1. Variables de Color (Paleta Corporativa) */
   --color-primario: rgb(50, 205, 104);
@@ -20,23 +20,4 @@
   --espacio-pequeño: 8px;
   --espaciado-medio: 16px;
   --espaciado-grande: 24px; 
-}
-
-footer {
-  background-color: var(--color-primario);
-  padding: var(--espaciado-medio);
-  border-radius: var(--espacio-pequeño);
-  margin-top: var(--espaciado-medio);
-}
-
-footer ul {
-  list-style: none; 
-  display: flex;
-  gap: 15px;
-  margin-top: var(--espacio-pequeño);
-}
-
-footer ul li a {
-  color: var(--color-enlace-footer);
-  text-decoration: none;
 }

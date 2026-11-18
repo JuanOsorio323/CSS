@@ -1,0 +1,18 @@
+footer {
+  background-color: var(--color-primario);
+  padding: var(--espaciado-medio);
+  border-radius: var(--espacio-pequeño);
+  margin-top: var(--espaciado-medio);
+}
+
+footer ul {
+  list-style: none; 
+  display: flex;
+  gap: 15px;
+  margin-top: var(--espacio-pequeño);
+}
+
+footer ul li a {
+  color: var(--color-enlace-footer);
+  text-decoration: none;
+}
