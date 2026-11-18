@@ -1,101 +1,24 @@
-## Cálculo Completo de Puntos de Especificidad
-La especificidad determina qué regla CSS gana y se aplica cuando existen colisiones visuales en un elemento. Su jerarquía de puntaje se calcula sumando el valor de cada selector:
-* **Etiquetas / Elementos** (`div`, `p`, `a`, `h2`, `ul`, `li`, `header`, `footer`, `main`, `aside`): **1 punto** cada una.
-* **Clases** (`.class`) y pseudo-clases (`:hover`): **10 puntos** cada una.
-* **Identificadores** (`#id`): **100 puntos** cada uno.
-
-### Desglose y Cálculo de cada Selector Utilizado en el Proyecto:
-
-1. **Selectores de Zona (Aislamiento de Menús):**
-   * `header nav ul li a` $\rightarrow$ 4 etiquetas (`nav`, `ul`, `li`, `a`) = **4 puntos** (1 + 1 + 1 + 1)
-   * `aside ul li a` $\rightarrow$ 3 etiquetas (`ul`, `li`, `a`) = **3 puntos** (1 + 1 + 1)
-   * `footer ul li a` $\rightarrow$ 3 etiquetas (`ul`, `li`, `a`) = **3 puntos** (1 + 1 + 1)
-
-2. **Selectores del Cuerpo Principal (Main):**
-   * `main section article a` $\rightarrow$ 3 etiquetas (`section`, `article`, `a`) = **3 puntos** (1 + 1 + 1)
-   * `main section article a.btn-comprar` $\rightarrow$ 3 etiquetas (`section`, `article`, `a`) + 1 clase (`.btn-comprar`) = **13 puntos** (1 + 1 + 1 + 10)
-   * `main section article a#btn-destacado` $\rightarrow$ 3 etiquetas (`section`, `article`, `a`) + 1 ID (`#btn-destacado`) = **103 puntos** (1 + 1 + 1 + 100)
-
-3. **Pseudo-clases:**
-   * `a:hover` $\rightarrow$ 1 etiqueta (`a`) + 1 pseudo-clase (`:hover`) = **11 puntos** (1 + 10)
-   
-   ## Hallazgos: El Modelo de Caja
-
-1. **La diferencia práctica entre Margin y Padding:**
-   - **Padding (Relleno):** Es el espacio interno que se genera entre el contenido real de la caja (textos, imágenes, enlaces) y su borde. Actúa como un colchón por dentro para evitar que los elementos colisionen o toquen los límites de su propio contenedor.
-   - **Margin (Margen):** Es el espacio externo que rodea la caja. Su función principal es separar el elemento de otros elementos vecinos o hermanos en la pantalla, evitando que se peguen o colisionen visualmente.
-
-2. **Por qué es obligatorio usar `box-sizing: border-box`:**
-   - Por defecto, el navegador calcula el ancho total de un elemento sumando el contenido más el relleno y los bordes por separado (`content-box`), lo que provoca que las cajas crezcan más de lo esperado y rompan la estructura del diseño. Al configurar `box-sizing: border-box;`, le indicamos al navegador que los rellenos y los bordes se calculen *hacia adentro*, garantizando que el tamaño total de la caja se mantenga fiel y exacto a las dimensiones que programamos.
-
-3. **Cómo se ven afectados los elementos hermanos cuando le aplicas un margen grande a uno de ellos:**
-   - Los elementos hermanos se desplazan y se alejan de forma proporcional según el espacio exterior que impone ese margen. Además, en el eje vertical (arriba y abajo), si dos elementos hermanos tienen márgenes contiguos, estos pueden fusionarse en un fenómeno conocido como *margin collapsing* (colapso de márgenes), donde el navegador aplica el valor del margen más grande en lugar de sumar ambos, lo cual es fundamental tener en cuenta para calcular espacios exactos en la interfaz.
-
-   ## Hallazgos: Centralización de Identidad Visual y Espaciado
-
-1. **La lista completa de variables declaradas (colores y espaciados):**
-   - **Variables de Color:**
-     - `--primary-color`: `rgb(50, 205, 104)` (Color corporativo principal para encabezados, barras laterales y pie de página).
-     - `--secondary-color`: `aquamarine` (Color de fondo global del cuerpo de la página).
-     - `--background-color`: `#f8fafc` (Fondo general complementario).
-     - `--text-color`: `#333333` (Color base para la tipografía general).
-     - `--white-color`: `#ffffff` (Color de fondo para las tarjetas de productos `<article>`).
-     - `--link-color`: `#0056b3` (Color principal para enlaces y botones de compra).
-     - `--secondary-link-color`: `#2e7d32` (Color para enlaces en la barra lateral).
-     - `--footer-link-color`: `#757575` (Color para enlaces del pie de página).
-     - `--accent-color`: `#d32f2f` (Color de realce/destacado para el primer producto ID).
-   - **Variables de Tipografía:**
-     - `--main-font`: `'Poppins', sans-serif` (Tipografía principal importada desde Google Fonts).
-   - **Variables de Espaciado (Tokens de Box Model):**
-     - `--spacing-small`: `8px` (Espaciado micro).
-     - `--spacing-medium`: `15px` (Espaciado estándar para márgenes).
-     - `--spacing-large`: `20px` (Espaciado amplio para rellenos/paddings).
-
-2. **La ventaja de reutilizar medidas de margen y relleno en lugar de inventar valores en cada selector:**
-   - Permite garantizar una consistencia visual rigurosa en todo el diseño web, logrando proporciones de aire idénticas y armónicas en todas las tarjetas de productos y secciones. Además, previene el error humano de escribir valores aleatorios y agiliza cualquier cambio futuro, ya que si decides modificar el tamaño del espacio, solo debes cambiarlo una sola vez en el `:root`.
-
-3. **De qué manera la centralización en `:root` previene colisiones visuales a medida que la hoja de estilos crece:**
-   - Al depender de una única "fuente de verdad" ubicada en el bloque `:root`, cualquier modificación o escalabilidad del diseño se propaga de manera uniforme a todo el documento. Esto elimina el riesgo de discrepancias en los márgenes entre elementos hermanos, previene desajustes estructurales en las cajas y evita que la hoja de estilos se vuelva caótica o difícil de mantener a medida que el proyecto de desarrollo crece.
-   # Proyecto CSS - Catálogo de Productos con Maquetación Semántica
-
-Este proyecto consiste en un catálogo de productos interactivo desarrollado con **HTML5** y **CSS3**, enfocado en la aplicación de variables de diseño, maquetación semántica mediante *Flexbox*, y microinteracciones avanzadas con pseudoclases y pseudoelementos.
-
-## Características del Proyecto
-
-* **Estructura Semántica**: Organización limpia utilizando las etiquetas `<header>`, `<main>`, `<article>`, `<aside>` y `<footer>`.
-* **Diseño Flexible (Flexbox)**: Distribución del layout en dos columnas (`.contenedor-layout`) para posicionar el catálogo de productos y el menú lateral de filtros lado a lado.
-* **Tokenización con Variables CSS**: Uso de `:root` para gestionar la paleta de colores corporativa, fuentes (`Poppins`) y espaciados estandarizados.
-* **Imágenes de Fondo**: Cabecera con imagen de fondo personalizada (`sapo.jpeg`).
-
-## Hallazgos: Pseudoclases y Pseudoelementos
-
-1. **Diferencia funcional entre una pseudoclase y un pseudoelemento:**
-   - Una **pseudoclase** (como `:hover`, `:focus` o `:active`) se activa para cambiar el estado o el estilo de un elemento existente en respuesta a la interacción del usuario (apuntar con el cursor, navegar con el teclado o hacer clic). Modifica dinámicamente el comportamiento del nodo según su estado actual.
-   - Un **pseudoelemento** (como `::before` o `::after`) permite insertar contenido generado por CSS (`content: "..."`) o crear capas gráficas virtuales directamente en el DOM renderizado, sin necesidad de modificar el código HTML estructural.
-
-2. **Importancia técnica de la pseudoclase `:focus` para la accesibilidad web:**
-   - La pseudoclase `:focus` es indispensable para garantizar los estándares de accesibilidad (WCAG). Permite a los usuarios que navegan mediante tecnologías de asistencia o exclusivamente con el teclado (tecla `Tab`) identificar de forma visual y clara en qué elemento interactivo se encuentran ubicados en cada momento, evitando la pérdida del foco visual.
-
-3. **Por qué es una buena práctica inyectar elementos decorativos con `::before`/`::after` en lugar de etiquetas HTML vacías:**
-   - Utilizar pseudoelementos para insertar detalles estéticos (como viñetas `•` o insignias de `¡Oferta!`) evita "ensuciar" el marcado HTML con elementos vacíos (`<span>` o `<div>`) puramente decorativos. Esto asegura una separación limpia entre la estructura semántica y la capa de presentación visual, facilitando el mantenimiento y mejorando la legibilidad del código.
-
-## Microinteracciones Implementadas
-
-* **Menú Lateral (`aside`)**:
-  * `:hover`: Cambia suavemente el fondo y el color del texto al pasar el cursor.
-  * `::before`: Inyecta automáticamente el indicador `• ` antes de cada categoría.
-  * `:focus`: Aplica un contorno visible (`outline`) al navegar con la tecla `Tab`.
-
-* **Catálogo de Productos (`main`)**:
-  * `::after`: Inyecta la insignia virtual ` ¡Oferta!` en el título (`<h2>`) de cada producto.
-  * `:hover`: Oscurece suavemente el botón de compra al pasar el cursor.
-  * `:active`: Simula un efecto de hundimiento/presión (`transform: scale(0.95)`) al hacer clic en los botones.
-
-## Versionado y Despliegue (Git)
-
-Comandos utilizados para consolidar y respaldar los avances en GitHub:
-
-```bash
-git add .
-git commit -m "feat(ui): implementar pseudoclases interactivas en aside y pseudoelementos en productos"
-git push origin feature/interactividad-css
+Catálogo Web - Refactorización con Arquitectura BEM y Modular
+Proyecto web desarrollado para la estructuración y refactorización de un catálogo de productos, migrando de un diseño monolítico a una arquitectura modular basada en componentes y siguiendo estrictamente la metodología BEM (Block, Element, Modifier).
+Estructura del Proyecto y Directorios
+El código fuente organiza los estilos de manera modular y estructurada dentro de la carpeta `css/`, separando los componentes visuales de las plantillas globales (layout) según los requerimientos técnicos del proyecto:
+```text
+catalogo/
+├── css/
+│   ├── components/
+│   │   ├── template/
+│   │   │   ├── footer.css       # Módulo estructural del pie de página
+│   │   │   └── header.css       # Módulo estructural de la cabecera y banner
+│   │   ├── base.css             # Estilos globales, reseteo y configuración base
+│   │   ├── sidebar.css          # Módulo de filtros y navegación lateral
+│   │   └── tarjeta.css          # Módulo de presentación de productos (Tarjetas)
+│   └── styles.css               # Hoja de estilos maestra (Variables :root y directivas @import)
+├── index.html                   # Punto de entrada principal (Estructura semántica)
+├── sapo.jpeg                    # Recurso multimedia y banner principal
+└── README.md                    # Documentación técnica del proyecto
+```
+Decisiones Técnicas y Metodológicas
+Metodología BEM (Block, Element, Modifier): Implementación de convenciones estrictas en los selectores CSS (ej. `.tarjeta`, `.tarjeta__titulo`, `.tarjeta__etiqueta--oferta`) para evitar colisiones de nombres, mantener una especificidad plana y facilitar el mantenimiento del código.
+Arquitectura Modular (`@import` centralizado): División del archivo monolítico original en módulos independientes por responsabilidad. El archivo maestro `styles.css` concentra la tokenización de variables globales en `:root` (paleta de colores, tipografías y espaciados) y enlaza de forma ordenada cada submódulo ubicado en `components/` y la subcarpeta `template/`.
+Separación de Plantillas (`template/`): Agrupación de los elementos estructurales fijos de la interfaz (`header.css` y `footer.css`) dentro de una subcarpeta dedicada, diferenciándolos de los módulos de contenido reutilizables (`tarjeta.css` y `sidebar.css`).
+Control de Versiones Atómico (Git): Gestión del repositorio mediante ramas de características (`feature/arquitectura-bem`) y commits estructurados bajo convenciones estándar (`refactor`, `feat`, `docs`), registrando de forma trazable la evolución de la estructura de carpetas y estilos.
