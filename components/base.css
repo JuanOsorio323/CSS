@@ -8,8 +8,25 @@ body {
   background-color: var(--color-secundario);
   font-family: var(--fuente-principal);
   color: var(--color-texto);
-  margin: var(--espaciado-medio);
-  padding: var(--espaciado-grande);
+  margin: 0;
+  padding: 0;
+}
+
+.app-layout{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-wrapper {
+  display: flex;
+  flex: 1;
+  gap: var(--espaciado-medio);
+  margin-top: var(--espaciado-medio);
+}
+
+main {
+  flex: 3;
 }
 
 /* Efecto global al pasar el cursor por los enlaces generales */

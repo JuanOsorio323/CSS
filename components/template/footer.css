@@ -1,5 +1,10 @@
 footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
   background-color: var(--color-primario);
+  color: var(--color-texto);
   padding: var(--espaciado-medio);
   border-radius: var(--espacio-pequeño);
   margin-top: var(--espaciado-medio);
@@ -8,11 +13,11 @@ footer {
 footer ul {
   list-style: none; 
   display: flex;
-  gap: 15px;
-  margin-top: var(--espacio-pequeño);
+  gap: var(--espaciado-medio);
 }
 
 footer ul li a {
   color: var(--color-enlace-footer);
   text-decoration: none;
+  font-weight: bold;
 }

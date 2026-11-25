@@ -1,14 +1,24 @@
+main section {
+   display: flex;
+   flex-wrap: wrap;
+   gap: var(--espaciado-grande);
+}
+
 .card {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 260px;
+  height: 100%;
   background-color: var(--color-blanco);
   padding: var(--espaciado-medio);
   margin-bottom: var(--espaciado-medio);
-  border-radius: var(--espaciado-pequeno);
+  border-radius: var(--espacio-pequeño);
   border: 1px solid #cbd5e1;
   position: relative;
 }
 
 /* Modificador BEM para la tarjeta destacada */
-.card--destacada {
+.card--destacado {
   border-color: var(--color-destacado);
 }
 
@@ -19,7 +29,7 @@
 }
 
 /* Aplicación del pseudo-elemento BEM para la etiqueta de oferta */
-.card__title::after {
+.card--destacado .card__title::after {
   content: " ¡Oferta!";
   display: inline-block;
   background-color: var(--color-destacado);
@@ -28,18 +38,21 @@
   font-weight: bold;
   padding: 2px 6px;
   border-radius: 4px;
-  margin-left: var(--espaciado-pequeno);
+  margin-left: var(--espacio-pequeño);
   vertical-align: middle;
 }
 
 .card__description {
-  margin-top: var(--espaciado-pequeno);
+  flex-grow: 1;
+  margin-top: var(--espacio-pequeño);
+  margin-bottom: var(--espacio-pequeño);
   color: var(--color-texto);
   font-size: 0.95rem;
 }
 
 .card__price {
-  margin-top: var(--espaciado-pequeno);
+  margin-top: auto;
+  margin-bottom: var(--espacio-pequeño);
   font-weight: bold;
   color: var(--color-enlace-secundario);
 }
@@ -49,7 +62,8 @@
   text-decoration: none;
   font-weight: bold;
   display: inline-block;
-  margin-top: var(--espaciado-pequeno);
+  align-self: flex-start;
+  margin-top: 0;
   padding: 6px 12px;
   border-radius: 4px;
   transition: transform 0.1s ease, filter 0.2s ease, background-color 0.2s ease;

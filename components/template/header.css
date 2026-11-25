@@ -1,4 +1,7 @@
 header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background-color: var(--color-primario);
   background-image: url('../../sapo.jpeg'); /* Ajusta la ruta relativa si está en la raíz */
   background-size: cover;
@@ -6,17 +9,19 @@ header {
   background-repeat: no-repeat;
   min-height: 250px;
   padding: var(--espaciado-medio);
-  border-radius: var(--espaciado-pequeno);
+  border-radius: var(--espacio-pequeño);
 }
 
+.nav__list,
 header nav ul {
   list-style: none;
   display: flex;
-  gap: 15px;
+  gap: var(--espaciado-medio);
 }
 
+.nav__list a,
 header nav ul li a {
-  color: var(--color-enlace);
+  color: var(--color-blanco);
   text-decoration: none;
   font-weight: bold;
 }

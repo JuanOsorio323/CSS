@@ -12,76 +12,79 @@
 </head>
 
 <body>
-  <!-- Encabezado con navegación principal -->
-  <header>
-    <nav>
+  <div class="app-layout">
+    <!-- Encabezado con navegación principal -->
+    <header>
+      <nav>
+        <ul>
+          <li><a href="#">Inicio</a></li>
+          <li><a href="#">Catálogo</a></li>
+          <li><a href="#">Ofertas</a></li>
+          <li><a href="#">Contacto</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="main-wrapper">
+      <!-- Cuerpo de la página dividido semánticamente entre main y aside -->
+      <main>
+        <section>
+          <!-- Producto 1 (Con clase e ID para el conflicto de especificidad) -->
+          <article class="card card--destacado">
+            <h2 class="card__title">Sapo Gamer Pro</h2>
+            <p class="card__description">Figura coleccionable edición especial de alta durabilidad y detalles
+              exclusivos.</p>
+            <p class="card__price">$45.000 COP</p>
+            <a href="#" class="card__button card__button--destacado" id="btn-destacado">Comprar</a>
+          </article>
+
+          <!-- Producto 2 -->
+          <article class="card">
+            <h2 class="card__title">Sapo Azul Clásico</h2>
+            <p class="card__description">Diseño tradicional enfocado en comodidad y estilo minimalista.</p>
+            <p class="card__price">$30.000 COP</p>
+            <a href="#" class="card__button btn-comprar">Comprar</a>
+          </article>
+
+          <!-- Producto 3 -->
+          <article class="card">
+            <h2 class="card__title">Sapo Neón LED</h2>
+            <p class="card__description">Modelo con iluminación RGB integrada y acabados de alta gama.</p>
+            <p class="card__price">$75.000 COP</p>
+            <a href="#" class="card__button btn-comprar">Comprar</a>
+          </article>
+
+          <!-- Producto 4 -->
+          <article class="card">
+            <h2 class="card__title">Sapo Mini Colección</h2>
+            <p class="card__description">Versión compacta ideal para escritorios y espacios de trabajo.</p>
+            <p class="card__price">$20.000 COP</p>
+            <a href="#" class="card__button btn-comprar">Comprar</a>
+          </article>
+        </section>
+      </main>
+
+      <!-- Barra lateral para menú secundario de filtros -->
+      <aside class="sidebar">
+        <h2>Filtros</h2>
+        <ul class="sidebar__list">
+          <li class="sidebar__item"><a href="#" class="sidebar__link">Ediciones Especiales</a></li>
+          <li class="sidebar__item"><a href="#" class="sidebar__link">Más Vendidos</a></li>
+          <li class="sidebar__item"><a href="#" class="sidebar__link">Ofertas Flash</a></li>
+        </ul>
+      </aside>
+    </div>
+
+    <!-- Pie de página con derechos y redes sociales -->
+    <footer>
+      <p>&copy; 2026 ADSO - Todos los derechos reservados.</p>
       <ul>
-        <li><a href="#">Inicio</a></li>
-        <li><a href="#">Catálogo</a></li>
-        <li><a href="#">Ofertas</a></li>
-        <li><a href="#">Contacto</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">Twitter</a></li>
       </ul>
-    </nav>
-  </header>
-
-  <!-- Cuerpo de la página dividido semánticamente entre main y aside -->
-  <div class="contenedor-layout">
-    <main>
-      <section>
-        <!-- Producto 1 (Con clase e ID para el conflicto de especificidad) -->
-        <article class="card card--destacado">
-          <h2 class="card__title">Sapo Gamer Pro</h2>
-          <p class="card__description">Figura coleccionable edición especial de alta durabilidad y detalles exclusivos.</p>
-          <p class="card__price">$45.000 COP</p>
-          <a href="#" class="card__button card__button--destacado" id="btn-destacado">Comprar</a>
-        </article>
-
-        <!-- Producto 2 -->
-        <article class="card">
-          <h2 class="card__title">Sapo Azul Clásico</h2>
-          <p class="card__description">Diseño tradicional enfocado en comodidad y estilo minimalista.</p>
-          <p class="card__price">$30.000 COP</p>
-          <a href="#" class="card__button btn-comprar">Comprar</a>
-        </article>
-
-        <!-- Producto 3 -->
-        <article class="card">
-          <h2 class="card__title">Sapo Neón LED</h2>
-          <p class="card__description">Modelo con iluminación RGB integrada y acabados de alta gama.</p>
-          <p class="card__price">$75.000 COP</p>
-          <a href="#" class="card__button btn-comprar">Comprar</a>
-        </article>
-
-        <!-- Producto 4 -->
-        <article class="card">
-          <h2 class="card__title">Sapo Mini Colección</h2>
-          <p class="card__description">Versión compacta ideal para escritorios y espacios de trabajo.</p>
-          <p class="card__price">$20.000 COP</p>
-          <a href="#" class="card__button btn-comprar">Comprar</a>
-        </article>
-      </section>
-    </main>
-
-    <!-- Barra lateral para menú secundario de filtros -->
-    <aside class="sidebar">
-      <h2>Filtros</h2>
-      <ul class="sidebar__list">
-        <li class="sidebar__item"><a href="#" class="sidebar__link">Ediciones Especiales</a></li>
-        <li class="sidebar__item"><a href="#" class="sidebar__link">Más Vendidos</a></li>
-        <li class="sidebar__item"><a href="#" class="sidebar__link">Ofertas Flash</a></li>
-      </ul>
-    </aside>
+    </footer>
   </div>
-
-  <!-- Pie de página con derechos y redes sociales -->
-  <footer>
-    <p>&copy; 2026 ADSO - Todos los derechos reservados.</p>
-    <ul>
-      <li><a href="#">Instagram</a></li>
-      <li><a href="#">Facebook</a></li>
-      <li><a href="#">Twitter</a></li>
-    </ul>
-  </footer>
 </body>
 
 </html>
